@@ -11,12 +11,17 @@ app.get('/filmes',async (req,res)=>{
     res.send(filmes)
 })
 app.post('/filmes',(req,res)=>{
+    const 
     const {id,titulo,descricao,imagem} = req.body
     const filme = {
         id,
         titulo,
         descricao,
         imagem
+    }
+    const salvaFilme = new SalvarFilme(bancoMongoDB)
+    try{
+        const resposta = await salvaFilme.eecute(filme)
     }
     //Como eu salvo o filme que foi cadastrado no meu vetor de filmes (Banco de dados)
     filmesCadastros.push(filme)

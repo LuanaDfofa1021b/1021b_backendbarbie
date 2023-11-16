@@ -3,6 +3,7 @@ const app = express()
 app.use(express.json())
 import ListaFilme from './aplicacao/lista-filme.use-case'
 import BancoMongoDB from './infra/banco/banco-mongodb'
+import SalvaFilme from './'
 const bancoMongoDB = new BancoMongoDB()
 app.get('/filmes',async (req,res)=>{
     //usem o listarFilme Usecase para listar os filmes
@@ -20,12 +21,8 @@ app.post('/filmes',(req,res)=>{
         imagem
     }
     const salvaFilme = new SalvarFilme(bancoMongoDB)
-    try{
         const resposta = await salvaFilme.eecute(filme)
-    }
-    //Como eu salvo o filme que foi cadastrado no meu vetor de filmes (Banco de dados)
-    filmesCadastros.push(filme)
-    res.status(201).send(filme)
+        res.status(201).send(filme)
 })
 
 app.get('/filmes/:id',(req,res)=>{

@@ -1,6 +1,6 @@
 import express from 'express'
 import cors from 'cors'
-//npm install cors --save
+
 const app = express()
 app.use(express.json())
 app.use(cors())

@@ -13,7 +13,7 @@ export default class BancoMongoDB implements  FilmeRepositorioInterface {
         new mongoose.Schema({
             _id: Number,
             titulo: String,
-            descricao: String,
+            sinopse: String,
             imagem: String
         })
     )
@@ -22,7 +22,7 @@ export default class BancoMongoDB implements  FilmeRepositorioInterface {
     const filmeDTO = {
       _id: filme.id,
       titulo: filme.titulo,
-      descricao: filme.descricao,
+      sinopse: filme.sinopse,
       imagem: filme.imagem
     }
     const filmeModelo = new this.filmeModelo(filmeDTO)
@@ -30,7 +30,7 @@ export default class BancoMongoDB implements  FilmeRepositorioInterface {
     const filmeSalvo = {
       id: result._id,
       titulo: result.titulo,
-      descricao: result.descricao,
+      sinopse: result.sinopse,
       imagem: result.imagem
     }
     return filmeSalvo
@@ -41,7 +41,7 @@ export default class BancoMongoDB implements  FilmeRepositorioInterface {
       return {
         id: filme._id,
         titulo: filme.titulo,
-        descricao: filme.descricao,
+        sinopse: filme.sinopse,
         imagem: filme.imagem
       }
     })
@@ -55,12 +55,12 @@ export default class BancoMongoDB implements  FilmeRepositorioInterface {
 type Filme = {
   id: number,
   titulo: string,
-  descricao: string,
+  sinopse: string,
   imagem: string
 };
 type FilmeDTO = {
   _id: number,
   titulo: string,
-  descricao: string,
+  sinopse: string,
   imagem: string
 }
